@@ -1,0 +1,16 @@
+def getElement(arr,n): 
+     if n==0 or n==1:
+         print(-1,-1)
+         return
+     large= float('-inf')
+     second_large = float('-inf')
+     for i in range(n): 
+          large = max(large, arr[i])
+     for i in range(n):
+          if arr[i] > second_large and arr[i] != large:
+              second_large = arr[i]
+     print("Second largest: ", second_large)
+if __name__ == "__main__":
+    arr = [1,2,4,6,7,7]
+    n = len(arr)
+    getElement(arr, n)
