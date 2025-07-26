@@ -7,6 +7,6 @@ def findLargestElement(arr, n):                               # Function that ta
 
 if __name__ == "__main__":
     arr = [2, 3, 1, 3, 0]                                     # Initializes the array and calls the function and prints the largest number
-    n = len(arr)
+    n = len(arr)                                              # Time Complexity: O(n)
     max_val = findLargestElement(arr, n)
     print("The largest element in the array is:", max_val)
