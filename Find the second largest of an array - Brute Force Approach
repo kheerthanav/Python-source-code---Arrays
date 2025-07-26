@@ -1,13 +1,13 @@
-def getElement(arr, n):
-    if n == 0 or n == 1:
-        print(-1, -1)
+def getElement(arr, n):                              # Function takes a list arr and its length n
+    if n == 0 or n == 1:                             # If the array has 0 or 1 element, it’s not possible to find a second largest
+        print(-1, -1)                                # So it prints -1, -1 and exits
         return
 
-    arr.sort()
-    seclarge = arr[n - 2]
-    print("Second largest element is:", seclarge)
+    arr.sort()                                       # Sorts the array in ascending order
+    seclarge = arr[n - 2]                            # After sorting, the second largest element is at index n - 2
+    print("Second largest element is:", seclarge)    # Prints the result 
 
-if __name__ == "__main__":
+if __name__ == "__main__":                           # Time complexity : O(n log n)
     arr = [1, 2, 3, 4, 6, 5]
     n = len(arr)
     getElement(arr, n)
