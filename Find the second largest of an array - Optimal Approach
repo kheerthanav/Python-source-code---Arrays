@@ -13,7 +13,7 @@ def secondLargest(arr, n):
       return second_large
 
 
-if __name__ ==  "__main__":                                  # Time complexity : O(n) 
+if __name__ ==  "__main__":                                  # Time complexity : O(n) — single pass through the array
    arr = [1,2,4,7,7,5]
    n = len(arr)
    sl = secondLargest(arr, n)
