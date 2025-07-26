@@ -1,16 +1,19 @@
 def secondLargest(arr, n):
-      if(n<2):
+      if(n<2):                                               # If the array has fewer than 2 elements, it's not possible to find a second largest.
           return -1
-      large = float('-inf')
+      large = float('-inf')                                  # Both are initialized to negative infinity to handle any input values safely
       second_large = float('-inf')
       for i in range(n):
-          if (arr[i]>large):
-              second_large = large
-              large = arr[i]
-          elif(arr[i]>second_large and arr[i] != large):
-                second_large = arr[i]
+          if (arr[i]>large):                                 # If arr[i] is greater than the current largest: 
+              second_large = large                           # Update second_large to the previous largest
+              large = arr[i]                                 # Update large to the new maximum (arr[i])
+   
+          elif(arr[i]>second_large and arr[i] != large):     # Else if arr[i] is distinct from the current largest, but greater than the current second_large
+                second_large = arr[i]                        # Update second_large
       return second_large
-if __name__ ==  "__main__":
+
+
+if __name__ ==  "__main__":                                  # Time complexity : O(n) 
    arr = [1,2,4,7,7,5]
    n = len(arr)
    sl = secondLargest(arr, n)
