@@ -1,12 +1,15 @@
 from typing import List
 def removeDuplicates(arr: List[int]) -> int:
-    i = 0
-    for j in range(1, len(arr)):
-        if arr[i] != arr[j]:
-            i += 1
+    i = 0                                                          # i tracks the index of the last unique element found
+    for j in range(1, len(arr)):                                   # j iterates through the array starting from the second element
+        if arr[i] != arr[j]:                                       # When arr[j] is different from arr[i], it means we've found a new unique element
+            i += 1                                                 # Increment i and copy this new unique element to arr[i]
             arr[i] = arr[j]
-    return i + 1
-if __name__ == "__main__":
+    return i + 1                                                   # After the loop, i + 1 is the count of unique elements
+
+
+
+if __name__ == "__main__":                                         # Time complexity : O(N)
     arr = [1, 1, 2, 2, 2, 3, 3]
     k = removeDuplicates(arr)
     print("The array after removing duplicate elements is ")
