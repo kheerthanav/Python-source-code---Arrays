@@ -1,12 +1,12 @@
 def isSorted(arr, n):  
     for i in range(n): 
-        for j in range(i + 1, n): 
-            if arr[j] < arr[i]: 
-                return False   # Correct indentation
-    return True 
+        for j in range(i + 1, n):               # For each i, it checks all elements after it (j = i+1 to n-1)                
+            if arr[j] < arr[i]:                 # If any later element arr[j] is less than arr[i], then the array is not sorted
+                return False                    # It immediately returns False
+    return True                                 # If no such condition is found, the array is sorted, so return True 
 
 if __name__ == "__main__": 
-    arr = [1, 2, 3, 4, 5] 
+    arr = [1, 2, 3, 4, 5]                       # Time complexity : O(n²) 
     n = len(arr) 
     ans = isSorted(arr, n) 
     if ans: 
