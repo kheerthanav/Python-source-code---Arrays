@@ -1,16 +1,18 @@
 def getElement(arr,n): 
-     if n==0 or n==1:
+     if n==0 or n==1:                                         # Can't find a second largest in a list with less than 2 elements
          print(-1,-1)
          return
-     large= float('-inf')
+     large= float('-inf')                                     # Set both values to negative infinity to track max values safely
      second_large = float('-inf')
      for i in range(n): 
-          large = max(large, arr[i])
+          large = max(large, arr[i])                          # Find the largest element in the list
      for i in range(n):
-          if arr[i] > second_large and arr[i] != large:
+          if arr[i] > second_large and arr[i] != large:       # Find the second largest element by ensuring it is distinct from the largest value in the array.
               second_large = arr[i]
-     print("Second largest: ", second_large)
-if __name__ == "__main__":
+     print("Second largest: ", second_large)                  # Print the result
+
+
+if __name__ == "__main__":                                    # Time complexity: O(n) — two linear passes through the array
     arr = [1,2,4,6,7,7]
     n = len(arr)
     getElement(arr, n)
