@@ -1,15 +1,15 @@
 from typing import List
-def removeDuplicates(arr: List[int]) -> int:
-      st = set()
+def removeDuplicates(arr: List[int]) -> int:                            
+      st = set()                                                        # A set automatically stores only unique elements
       for i in range(len(arr)):
-            st.add(arr[i])
-      k = len(st)
-      j = 0
-      for x in st:
-            arr[j] = x
+            st.add(arr[i])                                              # This collects all unique elements from arr
+      k = len(st)                                                       # Get the count of unique elements
+      j = 0                                                             
+      for x in st:                                                      # Overwrite the first k elements of arr with the unique values
+            arr[j] = x                                                  # This replaces the start of arr with the unique elements from the set
             j += 1
       return k
-if __name__ == "__main__":
+if __name__ == "__main__":                                              # Time complexity : O(Nlog(N))+O(N)
        arr = [1,1,2,2,2,3,3]
        k = removeDuplicates(arr)
        print("The array after removing duplicate elements is")
