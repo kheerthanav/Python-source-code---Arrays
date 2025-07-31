@@ -1,0 +1,18 @@
+def moveZeros(n: int,  a: [int]) -> [int]:                      
+    temp = []                                                   # Temporary array
+    for i in range(n):                                          # Copy non-zero elements from original to temp array
+        if a[i] != 0:
+            temp.append(a[i])
+    nz = len(temp)                                              # Number of non-zero elements
+    for i in range(nz):                                         # Copy elements from temp to fill first nz fields of original array
+        a[i] = temp[i]
+    for i in range(nz, n):                                      # Fill the rest of the cells with 0
+        a[i] = 0
+    return a
+    
+arr = [1, 0, 2, 3, 2, 0, 0, 4, 5, 1]                            # Time complexity: O(n)
+n = 10
+ans = moveZeros(n, arr)
+for it in ans:
+    print(it, end=" ")
+print()
