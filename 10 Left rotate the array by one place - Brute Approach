@@ -1,0 +1,11 @@
+def solve(arr, n):                      #defines a function with two arguments arr and n
+    temp = [0] * n                      #creates a new list temp of length n, initialized with all zeroes
+    for i in range(1, n):               #In each iteration, it copies the element from arr[i] into temp[i - 1]
+        temp[i - 1] = arr[i]
+    temp[n - 1] = arr[0]                #we assign the first element of arr to the last position in temp
+    for i in range(n):                  #prints each element of the rotated list temp
+        print(temp[i], end=" ")
+    print()
+n = 5
+arr = [1, 2, 3, 4, 5]                  #Time complexity : O(n)
+solve(arr, n)
