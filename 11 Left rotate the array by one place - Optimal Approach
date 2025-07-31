@@ -1,0 +1,10 @@
+def solve(arr, n):                #Defines a function with two parameters arr and n
+    temp = arr[0]                 #Stores the first element of the array in a temporary variable
+    for i in range(n - 1):        #Shifts all elements to the left by one position
+        arr[i] = arr[i + 1]
+    arr[n - 1] = temp             #We put the original first element at the last position
+    for i in range(n):            #Prints all elements of the rotated array
+        print(arr[i], end=" ")
+n = 5
+arr = [1, 2, 3, 4, 5]             #Time complexity :O(N)
+solve(arr, n)
