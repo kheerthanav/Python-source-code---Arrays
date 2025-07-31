@@ -1,0 +1,11 @@
+def search(arr, n, num):
+    for i in range(n):                # checks each element in the array one by one
+        if arr[i] == num:             # Checks if the current element (arr[i]) is equal to key (num)
+            return i                  # If true, it returns the index i else -1
+    return -1
+    
+arr = [1, 2, 3, 4, 5]                 # Time complexity: O(N)
+num = 4
+n = len(arr)
+val = search(arr, n, num)
+print(val)
