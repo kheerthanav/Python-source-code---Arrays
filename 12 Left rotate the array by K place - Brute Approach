@@ -1,0 +1,18 @@
+def rotate_to_left_brute(arr, n, k):      
+    if n == 0:                                               #If the array is empty, there's nothing to rotate. So exit the function
+        return
+    k = k % n                                                #Keeps rotation efficient. Ex: Rotating 8 times in a 7-element array is the same as rotating once (8 % 7 = 1)
+    if k > n:                                                #Ensures that we don’t try to rotate more than the size of the array
+        return
+    temp = arr[:k]                                           #Store first k elements
+    for i in range(n - k):                                   #Shifts the remaining elements to the left by k positions
+        arr[i] = arr[i + k]
+    for i in range(n - k, n):                                #Puts the k stored elements (from temp) at the end of the array
+        arr[i] = temp[i - (n - k)]   
+        
+arr = [1, 2, 3, 4, 5, 6, 7]                                  #Time complexity : O(n) 
+n = len(arr)
+k = 2
+rotate_to_left_brute(arr, n, k)
+print("After Rotating the elements to left:")
+print(arr)
