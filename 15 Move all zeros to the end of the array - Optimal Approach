@@ -1,0 +1,21 @@
+def moveZeros(n: int,  a: [int]) -> [int]:
+    j = -1                                            # Initialize a pointer j with -1
+    for i in range(n):                                # Place the pointer j
+        if a[i] == 0:                                 # If it finds a zero (a[i] == 0), it sets j = i, then breaks
+            j = i                                     # Now, j points to the position of the first zero that needs to be swapped
+            break
+    if j == -1:                                       # If no zero is found in the array, j remains -1. This means the array has no zeros at all, so there's nothing to move — we return the array as-is
+        return a
+   for i in range(j + 1, n):                          # For each index i, it checks if the element is non-zero
+        if a[i] != 0:                                 # If yes, we swap a[i] with a[j]. That means we bring the non-zero forward
+            a[i], a[j] = a[j], a[i]
+            j += 1                                    # Then, increment j so it points to the next zero spot for future swaps
+    return a                                          # The final array (with zeros moved to the end) is returned
+
+
+arr = [1, 0, 2, 3, 2, 0, 0, 4, 5, 1]                  # Time Complexity: O(N)
+n = 10
+ans = moveZeros(n, arr)
+for it in ans:
+    print(it, end=' ')
+print()
