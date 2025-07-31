@@ -1,0 +1,17 @@
+def reverse(arr, start, end):                                 #Uses the two-pointer method to swap elements
+    while start < end:                                        #Reverses elements between indices start and end (inclusive) in place
+        arr[start], arr[end] = arr[end], arr[start]
+        start += 1
+        end -= 1
+def rotate_to_left_optimal(arr, n, k):                        #Handles cases where k is larger than n. Rotating k times is the same as rotating k % n times
+    k = k % n
+    reverse(arr, 0, k - 1)                                    # Reverse first k elements
+    reverse(arr, k, n - 1)                                    # Reverse remaining n-k elements
+    reverse(arr, 0, n - 1)                                    # Reverse entire array
+
+arr = [1, 2, 3, 4, 5, 6, 7]                                   #Time complexity: O(n)
+n = len(arr)
+k = 2
+rotate_to_left_optimal(arr, n, k)
+print("After Rotating the k elements to left:")
+print(arr)
