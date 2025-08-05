@@ -1,0 +1,28 @@
+def find_union(arr1, arr2):
+    i, j = 0, 0                                                       # Start pointers for both arrays
+    union = []                                                        # Final result list 
+    while i < len(arr1) and j < len(arr2):                            # We go through both arrays simultaneously. We handle three cases
+        if arr1[i] <= arr2[j]:                                        # Case 1 and 2
+            if len(union) == 0 or union[-1] != arr1[i]:               # If arr1[i] is smaller, or equal, we take it and move i forward
+                union.append(arr1[i])                                 # But before adding, we check if it’s already the last added value
+            i += 1
+        else:                                                         # Case 3
+            if len(union) == 0 or union[-1] != arr2[j]:               # Same as above, but now we're adding arr2[j] if it's smaller.
+                union.append(arr2[j])
+            j += 1
+    while i < len(arr1):                                              # If any elements left in arr1
+        if union[-1] != arr1[i]:                                      # Adds any remaining elements from arr1 to union
+            union.append(arr1[i])
+        i += 1
+    while j < len(arr2):                                              # If any elements left in arr2
+        if union[-1] != arr2[j]:                                      # Adds any remaining elements from arr2 to union
+            union.append(arr2[j])
+        j += 1
+    return union
+
+    
+arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]                                # Time Complexity: O(n + m)
+arr2 = [2, 3, 4, 4, 5, 11, 12]
+union = find_union(arr1, arr2)
+print("Union of arr1 and arr2 is:")
+print(*union)
